@@ -2,8 +2,10 @@ package com.example.vidovalianto.lostnfound.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import com.example.vidovalianto.lostnfound.Model.User;
 
@@ -16,8 +18,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "User.db";
 
+    private SQLiteDatabase db;
+
+    private SQLiteDatabase database;
+
     // Contacts table name
-    private static final String TABLE_USER = "userData";
+    public static final String TABLE_USER = "userData";
 
     // Contacts Table Columns names
     private static final String KEY_USER = "user";
@@ -30,7 +36,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
                 + KEY_USER+ " STRING," + KEY_EMAIL + " STRING,"
-                + KEY_PASSWORD+ " STRING," + ")" ;
+                + KEY_PASSWORD+ " STRING" + ")" ;
         db.execSQL(CREATE_USER_TABLE);
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -54,6 +60,39 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         db.insert(TABLE_USER, null, values);
         db.close();
+    }
+
+    public Cursor fetch() {
+        Cursor cursor = this.database.query(DatabaseHandler.TABLE_USER, new String[]{DatabaseHandler.KEY_USER, DatabaseHandler.KEY_PASSWORD, DatabaseHandler.KEY_EMAIL}, null, null, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
+    }
+
+    public Cursor finduser(String username){
+        String query = "SELECT * FROM userData WHERE KEY_USER='" + username;
+
+        Cursor  cursor = db.rawQuery(query,null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+
+        }
+
+        return cursor;
+
+    }
+
+    public Cursor findpassword(String password){
+        String query = "SELECT * FROM userData WHERE KEY_PASSWORD='" + password;
+
+        Cursor  cursor = db.rawQuery(query,null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
     }
 
 

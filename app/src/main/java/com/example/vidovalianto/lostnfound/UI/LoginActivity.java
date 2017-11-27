@@ -2,13 +2,16 @@ package com.example.vidovalianto.lostnfound.UI;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.vidovalianto.lostnfound.Database.DatabaseHandler;
 import com.example.vidovalianto.lostnfound.Model.User;
 import com.example.vidovalianto.lostnfound.R;
 import com.example.vidovalianto.lostnfound.SessionManager;
@@ -19,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText mUsername;
     EditText mPassword;
     SessionManager mSession;
+    public DatabaseHandler mDbHelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,16 +58,27 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void checkUser(){
+
+
+        String username = mUsername.getText().toString();
+        String password = mPassword.getText().toString();
+        if(mDbHelper.finduser(username)!=null&&mDbHelper.findpassword(password)!=null){
         User user = new User();
-        user.setUsername(mUsername.getText().toString());
-        user.setPassword(mPassword.getText().toString());
+        user.setUsername(username);
+        user.setPassword(password);
+        mSession.setUserName(user.getUsername());
+        mSession.setPassword(user.getPassword());
         progressDialog.show();
-        toProfile();
+        toProfile();}else {
+            Toast.makeText(this,"No User Found",Toast.LENGTH_SHORT);
+        }
     }
+
 
     public void toProfile() {
         Intent next = new Intent(this,ProfileActivity.class);
         startActivity(next);
+        progressDialog.dismiss();
         finish();
     }
 
@@ -72,4 +87,5 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(next);
         finish();
     }
+
 }

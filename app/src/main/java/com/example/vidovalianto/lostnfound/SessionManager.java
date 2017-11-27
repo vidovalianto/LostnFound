@@ -15,6 +15,7 @@ public class SessionManager {
 
     private static final String USER_NAME = "user_name";
     private static final String PASSWORD = "password";
+    private static final String EMAIL = "email";
 
 
     private static final String LOGIN = "login";
@@ -66,6 +67,18 @@ public class SessionManager {
     public String getPassword()
     {
         return pref.getString(PASSWORD, "");
+    }
+
+    public void setEmail(String email)
+    {
+        editor.putString(EMAIL, email);
+        editor.commit();
+    }
+
+
+    public String getEmail()
+    {
+        return pref.getString(EMAIL, "");
     }
 
 }

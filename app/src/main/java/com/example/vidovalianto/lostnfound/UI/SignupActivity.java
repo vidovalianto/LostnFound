@@ -22,14 +22,13 @@ public class SignupActivity extends AppCompatActivity{
     ProgressDialog progressDialog;
     EditText mUsername;
     EditText mPassword;
-    SessionManager mSession;
+    EditText mEmail;
+    EditText mRePassword;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_page);
-
-        mSession = new SessionManager(this);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Signing in...");
@@ -37,27 +36,36 @@ public class SignupActivity extends AppCompatActivity{
 
         mUsername = (EditText) findViewById(R.id.edit_id);
         mPassword = (EditText) findViewById(R.id.edit_pass);
+        mEmail = (EditText) findViewById(R.id.edit_email);
+        mRePassword = (EditText) findViewById(R.id.edit_repass);
 
-        Button signup_btn = (Button) findViewById(R.id.signupbutton);
-        signup_btn.setOnClickListener(new View.OnClickListener() {
+        Button next = (Button) findViewById(R.id.loginbutton);
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toSignUp();
+                checkUser();
             }
         });
     }
 
+    public void checkUser(){
+        if(mRePassword.getText().toString()==mPassword.getText().toString()){
+            final User user = new User();
+            user.setUsername(mUsername.getText().toString());
+            user.setPassword(mPassword.getText().toString());
+            progressDialog.show();
+            toLogin();
+        }}
 
-    public void toSignUp() {
-        progressDialog.show();
-        Intent next = new Intent(this,SignupActivity.class);
+    public void toLogin() {
+        Intent next = new Intent(this,LoginActivity.class);
         startActivity(next);
         finish();
-
     }
-
-
 }
+
+
+
 
 
 

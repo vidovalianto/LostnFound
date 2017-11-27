@@ -62,16 +62,23 @@ public class LoginActivity extends AppCompatActivity {
 
         String username = mUsername.getText().toString();
         String password = mPassword.getText().toString();
-        if(mDbHelper.finduser(username)!=null&&mDbHelper.findpassword(password)!=null){
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
         mSession.setUserName(user.getUsername());
         mSession.setPassword(user.getPassword());
         progressDialog.show();
-        toProfile();}else {
-            Toast.makeText(this,"No User Found",Toast.LENGTH_SHORT);
-        }
+        toProfile();
+//        if(mDbHelper.finduser(username)!=null&&mDbHelper.findpassword(password)!=null){
+//        User user = new User();
+//        user.setUsername(username);
+//        user.setPassword(password);
+//        mSession.setUserName(user.getUsername());
+//        mSession.setPassword(user.getPassword());
+//        progressDialog.show();
+//        toProfile();}else {
+//            Toast.makeText(this,"No User Found",Toast.LENGTH_SHORT);
+//        }
     }
 
 

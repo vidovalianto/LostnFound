@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_barang"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        layout_constraintBottom_toBottomOf="parent"
+        layout_constraintHorizontal_bias="0.6"
+        layout_constraintLeft_toLeftOf="parent"
+        layout_constraintRight_toRightOf="parent"
+        layout_constraintTop_toBottomOf="parent"
+        layout_constraintVertical_bias="0.0" />
+
+</android.support.constraint.ConstraintLayout>

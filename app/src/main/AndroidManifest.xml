@@ -17,8 +17,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".UI.HomeActivity"/>
         <activity android:name=".UI.ProfileActivity"/>
         <activity android:name=".UI.SignupActivity"/>
+        <activity android:name=".UI.PostActivity"/>
     </application>
 
 </manifest>

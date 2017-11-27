@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:id="@+id/bottomNavBar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="8dp"
+        android:background="#fff"
+        android:elevation="10dp"
+        android:foregroundGravity="bottom"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="parent">
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="HOME"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/rb_post"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="POST"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/rb_profile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:paddingBottom="2dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:paddingTop="5dp"
+                android:text="PROFILE"
+                android:textSize="12sp" />
+
+
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/dynamicContent"
+        android:orientation="vertical"
+        android:layout_marginBottom="56dp"
+        android:background="#fff"
+        android:layout_gravity="bottom">
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

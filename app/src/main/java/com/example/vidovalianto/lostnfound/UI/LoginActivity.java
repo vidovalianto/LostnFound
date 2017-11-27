@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import com.example.vidovalianto.lostnfound.SessionManager;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String TAG = "database" ;
     ProgressDialog progressDialog;
     EditText mUsername;
     EditText mPassword;
@@ -59,9 +61,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void checkUser(){
 
-
         String username = mUsername.getText().toString();
         String password = mPassword.getText().toString();
+
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
@@ -69,7 +71,8 @@ public class LoginActivity extends AppCompatActivity {
         mSession.setPassword(user.getPassword());
         progressDialog.show();
         toProfile();
-//        if(mDbHelper.finduser(username)!=null&&mDbHelper.findpassword(password)!=null){
+
+//        if(mDbHelper.finduser(username)!=null){
 //        User user = new User();
 //        user.setUsername(username);
 //        user.setPassword(password);
@@ -81,6 +84,8 @@ public class LoginActivity extends AppCompatActivity {
 //        }
     }
 
+//    public Cursor getBusinessInfo(String name) {
+//        return mDbHelper.rawQuery("SELECT business,address,phone,hours,website,type FROM Business where name like ?", new String[]{"%"+name+"%"}); };
 
     public void toProfile() {
         Intent next = new Intent(this,ProfileActivity.class);

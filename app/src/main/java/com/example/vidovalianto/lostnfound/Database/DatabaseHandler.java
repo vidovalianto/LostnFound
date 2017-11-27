@@ -3,6 +3,7 @@ package com.example.vidovalianto.lostnfound.Database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -70,8 +71,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor finduser(String username){
-        String query = "SELECT * FROM userData WHERE KEY_USER='" + username;
+    public Cursor finduser(String username)throws SQLException {
+        String query = "SELECT * FROM userData WHERE KEY_USER=" + username;
 
         Cursor  cursor = db.rawQuery(query,null);
 
@@ -84,8 +85,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
-    public Cursor findpassword(String password){
-        String query = "SELECT * FROM userData WHERE KEY_PASSWORD='" + password;
+    public Cursor findpassword(String password)throws SQLException {
+        String query = "SELECT * FROM userData WHERE password=" + password;
 
         Cursor  cursor = db.rawQuery(query,null);
 
@@ -94,6 +95,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         return cursor;
     }
+
 
 
 }

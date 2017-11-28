@@ -20,7 +20,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView mDay, mLocation, mBarang;
+        TextView mDay, mLocation, mBarang, mStatus;
 
 
         public ViewHolder(View itemView) {
@@ -28,6 +28,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
             mBarang = (TextView) itemView.findViewById(R.id.tv_namabarang);
             mDay = (TextView) itemView.findViewById(R.id.tv_day);
             mLocation = (TextView) itemView.findViewById(R.id.tv_location);
+            mStatus = (TextView) itemView.findViewById(R.id.tv_statusbarang);
 
         }
     }
@@ -52,6 +53,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
         holder.mBarang.setText(items.get(position).getBarang());
         holder.mDay.setText(items.get(position).getHari());
         holder.mLocation.setText(items.get(position).getLokasi());
+        holder.mStatus.setText(items.get(position).getStatusBarang());
 
     }
 

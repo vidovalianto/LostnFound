@@ -60,10 +60,20 @@ public class HomeActivity extends BaseActivity {
         item.setBarang("Kunci Kos");
         item.setHari("Kamis");
         item.setLokasi("Jakal km 9 dekat indomaret");
+        item.setStatusBarang("HILANG");
         list.add(item);
+
+        Item item2 = new Item();
+        item2.setBarang("Handphone Xiomay warna kuning");
+        item2.setHari("Senin");
+        item2.setLokasi("Gedung D Lantai 6 Fakultas MIPA UGM");
+        item2.setStatusBarang("HILANG");
+        list.add(item2);
+
         Log.d(TAG, "setHomeData: " + list.get(0).getBarang());
         ItemAdapter adapter = new ItemAdapter(list);
         recycleView.setAdapter(adapter);
+
     }
 
 }

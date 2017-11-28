@@ -27,7 +27,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
             super(itemView);
             mBarang = (TextView) itemView.findViewById(R.id.tv_namabarang);
             mDay = (TextView) itemView.findViewById(R.id.tv_day);
-            mLocation = (TextView) itemView.findViewById(R.id.tv_location);
+            mLocation = (TextView) itemView.findViewById(R.id.tv_lokasi);
 
         }
     }

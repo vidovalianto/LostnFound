@@ -11,6 +11,7 @@ public class Item {
     private String barang;
     private String hari;
     private String lokasi;
+    private String statusBarang;
 
     public String getBarang() {
         return barang;
@@ -36,5 +37,11 @@ public class Item {
         this.lokasi = lokasi;
     }
 
+    public String getStatus() { return statusBarang; }
 
+    public void setStatusBarang(String status) { statusBarang = status; }
+
+    public String getStatusBarang() {
+        return statusBarang;
+    }
 }

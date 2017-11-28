@@ -67,5 +67,11 @@ public class ProfileActivity extends BaseActivity {
         super.onDestroy();
     }
 
+    public void toLoginActivity (View view)
+    {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
+
 
 }

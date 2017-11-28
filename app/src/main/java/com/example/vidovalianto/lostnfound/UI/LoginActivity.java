@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void toProfileAct(View view)
     {
-        Intent  intent = new Intent(getApplicationContext(), ProfileActivity.class);
+        Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
 
     }
